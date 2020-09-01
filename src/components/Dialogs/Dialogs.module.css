@@ -1,15 +1,39 @@
 .dialogs {
     display: grid;
-    grid-template-columns: 2fr 10fr;
+    grid-template-columns: 3fr 10fr;
 }
 .dialogsItems {
-    padding: 10px;
+    padding: 20px;
+}
+.dialog {
+    height: 50px;
+    line-height: 50px;
 }
 
-.dialogsItems .active{
-    color: gold;
+.dialog:hover {
+    background-color: grey;
+    border-radius: 5px;
 }
-.dialogsItems .dialog {
+
+
+.dialog .active{
+    color: blue;
+}
+
+.dialogsItems a {
+    text-decoration: none;
+    color: black;
+}
+
+.dialogsItems a:hover {
+    text-decoration: none;
+    color: white;
+
+}
+
+.dialogName {
+    display: grid;
+    grid-template-columns: 50px 60%;
 
 }
 
@@ -19,4 +43,18 @@
 
 .messages .message{
 
+}
+
+.name {
+    margin-left: 5px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.avatar {
+    margin: 5px;
+}
+.avatar img {
+    width:40px;
+    height:40px;
+    border-radius: 20px;
 }
