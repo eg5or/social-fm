@@ -2,6 +2,40 @@
     padding: 10px;
 }
 
-.content img {
+.imgHeaderBlock {
+    height: 100px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.imgHeader {
+    min-width: 100%;
+    min-height: 100%;
+    flex-shrink: 0;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.descriptionBlock {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+
+    grid-template-areas: "avatar aboutMe"
+                         "avatar contactsBlock"   ;
+}
+
+.avatar {
+    grid-area: avatar;
+}
+
+.aboutMe {
+    grid-area: aboutMe;
+}
+
+.contactsBlock {
+    grid-area: contactsBlock;
 }
