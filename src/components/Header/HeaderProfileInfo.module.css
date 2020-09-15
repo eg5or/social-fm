@@ -1,0 +1,35 @@
+.headerProfileBlock {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: 40px;
+    grid-template-areas: "avatar loginName";
+}
+
+.avatar {
+    grid-area: avatar;
+}
+
+.avatar img {
+    width: 40px;
+    border-radius: 50%;
+}
+
+.loginName {
+    grid-area: loginName;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.loginName a{
+    color: white;
+    text-decoration: none;
+    line-height: 15px;
+
+}
+
+.loginName a:hover{
+    color: gold;
+}

@@ -6,15 +6,14 @@ const ProfileInfo = (props) => {
     if (!props.profile) {
         return <Preloader />
     }
-
     return (
         <div>
             <div className={classes.imgHeaderBlock}>
-            <img className={classes.imgHeader} src='https://www.yestravel.ru/upload/information_system_29/8/4/6/item_846/information_items_846.jpg'/>
+            <img alt='' className={classes.imgHeader} src='https://www.yestravel.ru/upload/information_system_29/8/4/6/item_846/information_items_846.jpg'/>
             </div>
             <div className={classes.descriptionBlock}>
                 <div className={classes.avatar}>
-                    <img src={props.profile.photos.large} />
+                    <img alt='' src={props.profile.photos.large} />
                 </div>
                 <div className={classes.aboutMe}>
                     {props.profile.aboutMe}
@@ -57,8 +56,8 @@ const ProfileInfo = (props) => {
                 </div>
                 <div className={classes.jobBlock}>
                     <div>{!props.profile.contacts.lookingForAJob ? <span>Ищет работу!</span> : <span>Не ищет работу...</span>}</div>
-                    <div>{props.profile.contacts.lookingForAJobDescription}</div>
-                    <div>Полное имя: {props.profile.contacts.fullName}</div>
+                    <div>{props.profile.lookingForAJobDescription}</div>
+                    <div>Полное имя: {props.profile.fullName}</div>
                 </div>
             </div>
         </div>
