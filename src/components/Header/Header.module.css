@@ -6,3 +6,19 @@
 .header img {
     width: 50px;
 }
+
+.loginBlock {
+    float: right;
+    margin: 5px 10px;
+}
+
+.loginLink {
+    color: white;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.loginLink:hover {
+    color: gold;
+    text-transform: uppercase;
+}
