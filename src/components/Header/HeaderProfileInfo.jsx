@@ -1,11 +1,11 @@
 import classes from './HeaderProfileInfo.module.css';
 import {NavLink} from 'react-router-dom';
 import React from 'react';
-import {profileAPI} from '../../API/api';
+import {authAPI} from '../../API/api';
 
 const HeaderProfileInfo = (props) => {
 
-    profileAPI.getUserPhoto(props.id).then(data => {
+    authAPI.getUserPhoto(props.id).then(data => {
         if (data.photos.small === null) {
 
         } else {
