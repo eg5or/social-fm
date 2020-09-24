@@ -1,4 +1,5 @@
-import {profileAPI} from '../API/api';
+import {authAPI, profileAPI} from '../API/api';
+import {setAuthUserData} from './auth-reducer';
 
 const ADD_POST = 'ADD_POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT';

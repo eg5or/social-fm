@@ -1,5 +1,5 @@
 import userPhoto from '../assets/images/profile-default.png';
-import {usersAPI} from '../API/api';
+import {authAPI} from '../API/api';
 
 const SET_USER_DATA = 'SET_USER_DATA';
 const SET_USER_AVATAR = 'SET_USER_AVATAR';
@@ -34,9 +34,9 @@ const authReducer = (state = initialState, action) => {
 export const setAuthUserData = (userId, email, login) => ({type: SET_USER_DATA, data: {userId, email, login}})
 export const setUserAvatar = (avatarURL) => ({type: SET_USER_AVATAR, avatarURL})
 
-export const setUserData = () => {
+export const getAuthUserData = () => {
     return (dispatch) => {
-        usersAPI.setAuthUserData().then(data => {
+        authAPI.me().then(data => {
             if (data.resultCode === 0) {
                 let {id, login, email } = data.data
                 dispatch(setAuthUserData(id, email, login))
