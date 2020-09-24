@@ -13,9 +13,6 @@ export const usersAPI = {
         return instance.get(`users?page=${currentPage}&count=${pageSize}`)
             .then(response => response.data)
     },
-    setAuthUserData() {
-        return instance.get(`auth/me`).then(response => response.data)
-    },
     follow(userId) {
         return instance.post(`https://social-network.samuraijs.com/api/1.0/follow/${userId}`)
     },
