@@ -1,5 +1,6 @@
 import userPhoto from '../assets/images/profile-default.png';
 import {authAPI} from '../API/api';
+import {stopSubmit} from  'redux-form'
 
 const SET_USER_DATA = 'SET_USER_DATA';
 const SET_USER_AVATAR = 'SET_USER_AVATAR';
@@ -35,7 +36,7 @@ export const setUserAvatar = (avatarURL) => ({type: SET_USER_AVATAR, avatarURL})
 
 export const getAuthUserData = () => {
     return (dispatch) => {
-        authAPI.me().then(data => {
+        return authAPI.me().then(data => {
             if (data.resultCode === 0) {
                 let {id, login, email} = data.data
                 dispatch(setAuthUserData(id, email, login, true))
@@ -48,6 +49,9 @@ export const login = (email, password, rememberMe) => (dispatch) => {
     authAPI.login(email, password, rememberMe).then(data => {
         if (data.resultCode === 0) {
             dispatch(getAuthUserData())
+        } else {
+            let message = data.messages.length > 0 ? data.messages[0] : 'Some error'
+            dispatch(stopSubmit('login', {_error: message}))
         }
     })
 }
