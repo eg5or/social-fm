@@ -1,8 +1,8 @@
 .headerProfileBlock {
     display: grid;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 40px;
-    grid-template-areas: "avatar loginName";
+    grid-template-areas: "avatar loginName logout";
 }
 
 .avatar {
@@ -21,6 +21,14 @@
     flex-direction: column;
     justify-content: center;
 
+}
+
+.logout {
+    grid-area: logout;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .loginName a{

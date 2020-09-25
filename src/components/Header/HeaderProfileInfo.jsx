@@ -17,6 +17,7 @@ const HeaderProfileInfo = (props) => {
             <img alt='' src={props.avatarURL}/>
         </div>
         <div className={classes.loginName}><NavLink to={'/profile'}>{props.login}</NavLink></div>
+        <div className={classes.logout}><button onClick={props.logout}>Logout</button></div>
     </div>
 }
 
