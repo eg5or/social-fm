@@ -2,9 +2,6 @@ import React from 'react';
 import classes from './users.module.css';
 import userPhoto from '../../assets/images/profile-default.png';
 import {NavLink} from 'react-router-dom';
-import * as axios from 'axios';
-import {toggleFollowingProgress} from '../../redux/users-reducer';
-import {usersAPI} from '../../API/api';
 
 let Users = (props) => {
 

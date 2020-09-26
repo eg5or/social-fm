@@ -2,7 +2,6 @@ import React from "react";
 import classes from './ProfileInfo.module.css'
 import Preloader from '../../common/Preloader/Preloader';
 import ProfileStatus from "./ProfileStatus";
-import Profile from "../Profile";
 
 const ProfileInfo = (props) => {
     if (!props.profile) {
