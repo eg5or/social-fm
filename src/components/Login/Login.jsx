@@ -1,17 +1,17 @@
 import React from 'react';
 import {Field, reduxForm} from "redux-form";
-import {Input} from "../common/FormsControl/FormsControl";
+import {createField, Input} from "../common/FormsControl/FormsControl";
 import {required} from "../../utils/validators/validators";
 import {connect} from "react-redux";
 import {login} from "../../redux/auth-reducer";
 import {Redirect} from "react-router-dom";
 
-const Login = (props) => {
+const Login = ({login, isAuth}) => {
     const onSubmit = (formData) => {
-        props.login(formData.email, formData.password, formData.rememberMe)
+        login(formData.email, formData.password, formData.rememberMe)
     }
 
-    if (props.isAuth) {
+    if (isAuth) {
         return <Redirect to={'/profile'}/>
     }
 
@@ -21,34 +21,13 @@ const Login = (props) => {
     </div>
 }
 
-const LoginForm = (props) => {
-    return <form onSubmit={props.handleSubmit}>
-        <div>
-            <Field
-                placeholder={'E-mail'}
-                name={'email'}
-                component={Input}
-                validate={[required]}
-            />
-        </div>
-        <div>
-            <Field
-                placeholder={'Password'}
-                name={'password'}
-                component={Input}
-                validate={[required]}
-                type={'password'}
-            />
-        </div>
-        <div>
-            <Field
-                name={'rememberMe'}
-                component={Input}
-                type={'checkbox'}
-            /> remember me
-        </div>
-        { props.error && <div>
-            {props.error}
+const LoginForm = ({handleSubmit, error}) => {
+    return <form onSubmit={handleSubmit}>
+        {createField('E-mail','email', Input, [required] )}
+        {createField('Password','password', Input, [required], {type: 'password'} )}
+        {createField(null,'rememberMe', Input, null, {type: 'checkbox'}, 'Remember me' )}
+        { error && <div>
+            {error}
         </div>}
         <div>
             <button>Login</button>

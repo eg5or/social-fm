@@ -1,5 +1,7 @@
 import React from "react";
 import classes from './FormsControl.module.css'
+import {Field} from "redux-form";
+import {required} from "../../../utils/validators/validators";
 
 export const TextArea = ({input, meta, ...props}) => {
 
@@ -28,3 +30,16 @@ export const Input = ({input, meta, ...props}) => {
         </div>
     </div>
 }
+
+export const createField = (placeholder, name, component, validators, props={}, text='') => (
+    <div>
+        <Field
+            placeholder={placeholder}
+            name={name}
+            component={component}
+            validate={validators}
+            {...props}
+        />{text}
+    </div>
+)
+
